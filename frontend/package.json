@@ -1,0 +1,38 @@
+{
+  "name": "showtime-arena",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "axios": "^1.7.9",
+    "bootstrap": "^5.3.3",
+    "date-fns": "^4.1.0",
+    "next": "^15.1.6",
+    "react-big-calendar": "^1.17.1",
+    "react-bootstrap": "^2.10.9"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@types/axios": "^0.9.36",
+    "@types/next": "^8.0.7",
+    "@types/node": "^20.17.16",
+    "@types/react": "^19.0.8",
+    "@types/react-bootstrap": "^0.32.37",
+    "@types/react-dom": "^19.0.3",
+    "@typescript-eslint/eslint-plugin": "^8.22.0",
+    "@typescript-eslint/parser": "^8.22.0",
+    "eslint": "^9.19.0",
+    "eslint-config-next": "15.1.6",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-prettier": "^5.2.3",
+    "postcss": "^8",
+    "prettier": "^3.4.2",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.7.3"
+  }
+}

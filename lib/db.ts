@@ -1,35 +1,30 @@
-// lib/db.ts
-import mongoose, { Mongoose } from 'mongoose';
+import mongoose from 'mongoose';
 
-// 1) Check environment variable
-const MONGODB_URI = process.env.MONGODB_URI;
+const MONGODB_URI = process.env.MONGODB_URI || '';
+
 if (!MONGODB_URI) {
-  throw new Error('Please define the MONGODB_URI environment variable in .env.local');
+  throw new Error('Please define the MONGODB_URI environment variable inside .env.local');
 }
 
-// 2) Provide a global cache. We'll name it 'mongooseCache'
-declare global {
-  // eslint-disable-next-line no-var
-  var mongooseCache: {
-    conn: Mongoose | null;
-    promise: Promise<Mongoose> | null;
-  };
-}
+/**
+ * Global caching to prevent multiple connections in development mode.
+ */
+let cached = (global as any).mongoose || { conn: null, promise: null };
 
-let cached = global.mongooseCache;
-if (!cached) {
-  cached = global.mongooseCache = { conn: null, promise: null };
-}
-
-async function connectDB(): Promise<Mongoose> {
+async function connectDB() {
   if (cached.conn) {
     return cached.conn;
   }
+
   if (!cached.promise) {
-    cached.promise = mongoose.connect(MONGODB_URI!).then((conn: Mongoose) => conn);
+    cached.promise = mongoose.connect(MONGODB_URI, {}).then((m) => m.connection);
   }
+
   cached.conn = await cached.promise;
   return cached.conn;
 }
+
+// Store the connection globally to avoid reconnecting
+(global as any).mongoose = cached;
 
 export default connectDB;

@@ -25,9 +25,13 @@ const AppNavbar: React.FC = () => {
             <Nav.Link as={Link} href="/view-booking">
               My Booking
             </Nav.Link>
-            {/* Add Gallery link */}
+            {/* Gallery link */}
             <Nav.Link as={Link} href="/gallery">
               Gallery
+            </Nav.Link>
+            {/* Sign Up link */}
+            <Nav.Link as={Link} href="/auth/signup">
+              Sign Up
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

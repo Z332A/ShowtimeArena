@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    
     // Target modern JavaScript
     "target": "ES2017",
     // Libs used by Next.js 
@@ -28,9 +29,8 @@
     // Path aliases: 
     "paths": {
       // Example: map '@models/*' to the 'models' folder
-      "@models/*": ["models/*"],
-      // If you also want a lib alias
-      "@lib/*": ["lib/*"]
+      "@models/*": ["../models/*"],
+      "@lib/*": ["../lib/*"]
     },
 
     // Optionally: define global typeRoots if you have custom .d.ts

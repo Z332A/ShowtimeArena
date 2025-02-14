@@ -15,6 +15,7 @@ export type UserRole = 'GLOBAL_ADMIN' | 'BOOKING_ADMIN' | 'GROUP_CAPTAIN' | 'TEA
 export interface IUser extends Document {
   _id: Types.ObjectId;
   email: string;
+  phone: string;
   passwordHash: string;
   name?: string;
   role: UserRole;
@@ -24,6 +25,7 @@ export interface IUser extends Document {
 const UserSchema = new Schema<IUser>(
   {
     email: { type: String, required: true, unique: true },
+    phone: { type: String, required: true },
     passwordHash: { type: String, required: true },
     name: { type: String },
     role: {

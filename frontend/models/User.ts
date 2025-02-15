@@ -18,6 +18,7 @@ export interface IUser extends Document {
   phone: string;
   passwordHash: string;
   name?: string;
+  avatarUrl?: string;
   role: UserRole;
   // add more fields (avatarUrl, phone, etc.) if needed
 }
@@ -28,6 +29,7 @@ const UserSchema = new Schema<IUser>(
     phone: { type: String, required: true },
     passwordHash: { type: String, required: true },
     name: { type: String },
+    avatarUrl: { type: String },
     role: {
       type: String,
       enum: ['GLOBAL_ADMIN', 'BOOKING_ADMIN', 'GROUP_CAPTAIN', 'TEAM_MEMBER'],

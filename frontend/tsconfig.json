@@ -1,57 +1,39 @@
 {
   "compilerOptions": {
-    
-    // Target modern JavaScript
-    "target": "ES2017",
-    // Libs used by Next.js 
+    "target": "ES2021",
     "lib": ["dom", "dom.iterable", "esnext"],
-    // Allow JavaScript files in the project
     "allowJs": true,
-    // Skip type checks of .d.ts in node_modules
     "skipLibCheck": true,
-    // Enable all strict type-checking
     "strict": true,
-    // Don't emit compiled output (Next.js handles that)
     "noEmit": true,
-    // ES module interop for library imports
     "esModuleInterop": true,
-    // Use ESNext module type for Next.js
     "module": "esnext",
-    // If using Next.js 13 with Turbopack, "bundler" is recommended
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
 
-    // Base URL is the project root. 
-    "baseUrl": ".",
-    // Path aliases: 
+    // Base directory is "frontend", since Next.js runs from here
+    "baseUrl": "./",
+
+    // Correct alias paths for "lib" and "models" in the project root
     "paths": {
-      // Example: map '@models/*' to the 'models' folder
-      "@models/*": ["../models/*"],
-      "@lib/*": ["../lib/*"]
+      "@models/*": ["models/*"],
+      "@lib/*": ["lib/*"]
     },
 
-    // Optionally: define global typeRoots if you have custom .d.ts
-    // "typeRoots": [
-    //   "./types",
-    //   "./node_modules/@types"
-    // ],
-    
-    // Next plugin for better TS support 
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ]
+    "plugins": [{ "name": "next" }]
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    // If you have a 'types' folder with global .d.ts 
+    "pages",
+    "components",
+    "lib",
+    "models",
     "types"
   ],
   "exclude": ["node_modules"]
